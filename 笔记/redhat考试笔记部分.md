@@ -4,7 +4,7 @@
  * @Author       : ChlorineLv@outlook.com
  * @Date         : 2021-11-01 14:11:00
  * @LastEditors  : ChlorineLv@outlook.com
- * @LastEditTime : 2021-11-04 12:14:50
+ * @LastEditTime : 2021-11-05 15:55:05
 -->
 
 # RHCSA考试备注
@@ -69,9 +69,23 @@ node1 的根密码已经设置为 flectrag 。
 >
 >DNS服务器：172.25.250.254
 
+<details>
+    <summary>参考答案</summary>
+    <pre>
+    [root@node1 ~]# mkdir /root/findfiles
+    [root@node1 ~]# find / user jacques -exec cp -a {} /root/findfiles/ \;</pre>
+</details>
+
 ## 完成配置您的系统以使用默认存储库
 
 > YUM 存储库已可以从 http://foundation0.ilt.example.com/dvd/BaseOS 和 http://foundation0.ilt.example.com/dvd/AppStream 使用配置您的系统，以将这些位置用作默认存储库
+
+<details>
+    <summary>参考答案</summary>
+    <pre>
+    [root@node1 ~]# mkdir /root/findfiles
+    [root@node1 ~]# find / user jacques -exec cp -a {} /root/findfiles/ \;</pre>
+</details>
 
 ## 完成调试 SELinux
 
@@ -82,6 +96,13 @@ node1 的根密码已经设置为 flectrag 。
 >2、Web 服务器在端口 82 上提供此内容
 >
 >3、Web 服务器在系统启动时自动启动
+
+<details>
+    <summary>参考答案</summary>
+    <pre>
+    [root@node1 ~]# mkdir /root/findfiles
+    [root@node1 ~]# find / user jacques -exec cp -a {} /root/findfiles/ \;</pre>
+</details>
 
 ## 完成创建用户帐户
 
@@ -97,11 +118,25 @@ node1 的根密码已经设置为 flectrag 。
 >
 >5、natasha、harry 和 sarah 的密码应当都是 flectrag
 
+<details>
+    <summary>参考答案</summary>
+    <pre>
+    [root@node1 ~]# mkdir /root/findfiles
+    [root@node1 ~]# find / user jacques -exec cp -a {} /root/findfiles/ \;</pre>
+</details>
+
 ## 完成配置 cron 作业
 
 >配置 cron 作业，该作业每隔 2 分钟运行并执行以下命令：
 >
 >1、logger "EX200 in progress"，以用户 natasha 身份运行
+
+<details>
+    <summary>参考答案</summary>
+    <pre>
+    [root@node1 ~]# mkdir /root/findfiles
+    [root@node1 ~]# find / user jacques -exec cp -a {} /root/findfiles/ \;</pre>
+</details>
 
 ## 完成创建协作目录
 
@@ -113,9 +148,23 @@ node1 的根密码已经设置为 flectrag 。
 >
 >3、/home/managers 中创建的文件自动将组所有权设置到 sysmgrs 组
 
+<details>
+    <summary>参考答案</summary>
+    <pre>
+    [root@node1 ~]# mkdir /root/findfiles
+    [root@node1 ~]# find / user jacques -exec cp -a {} /root/findfiles/ \;</pre>
+</details>
+
 ## 完成配置 NTP
 
 >配置您的系统，使其成为 materials.example.com 的 NTP 客户端。（注：materials.example.com 是 classroom.example.com 的 DNS 别名）
+
+<details>
+    <summary>参考答案</summary>
+    <pre>
+    [root@node1 ~]# mkdir /root/findfiles
+    [root@node1 ~]# find / user jacques -exec cp -a {} /root/findfiles/ \;</pre>
+</details>
 
 ## 完成配置 autofs
 
@@ -130,6 +179,13 @@ node1 的根密码已经设置为 flectrag 。
 >4、主目录必须可供其用户写入
 >
 >5、remoteuser1 的密码是 flectrag
+
+<details>
+    <summary>参考答案</summary>
+    <pre>
+    [root@node1 ~]# mkdir /root/findfiles
+    [root@node1 ~]# find / user jacques -exec cp -a {} /root/findfiles/ \;</pre>
+</details>
 
 ## 完成配置 /var/tmp/fstab 权限
 
@@ -147,9 +203,23 @@ node1 的根密码已经设置为 flectrag 。
 >
 >6、所有其他用户（当前或未来）能够读取 /var/tmp/fstab
 
+<details>
+    <summary>参考答案</summary>
+    <pre>
+    [root@node1 ~]# mkdir /root/findfiles
+    [root@node1 ~]# find / user jacques -exec cp -a {} /root/findfiles/ \;</pre>
+</details>
+
 ## 完成配置用户帐户
 
 >配置用户 manalo ，其用户 ID 为 3533。此用户的密码应当为 flectrag。
+
+<details>
+    <summary>参考答案</summary>
+    <pre>
+    [root@node1 ~]# useradd -u 3533 manalo
+    [root@node1 ~]# echo flectrag | passwd --stdin manalo</pre>
+</details>
 
 ## 完成查找文件
 
@@ -160,7 +230,7 @@ node1 的根密码已经设置为 flectrag 。
 * -exec cp -a {} /root/findfiles 会将前面的结果传进 { } 里执行接下来的语句
 
 <details>
-    <summary>答案</summary>
+    <summary>参考答案</summary>
     <pre>
     [root@node1 ~]# mkdir /root/findfiles
     [root@node1 ~]# find / user jacques -exec cp -a {} /root/findfiles/ \;</pre>
@@ -181,7 +251,7 @@ node1 的根密码已经设置为 flectrag 。
 
 
 <details>
-    <summary>答案</summary>
+    <summary>参考答案</summary>
     <pre>
     [root@node1 ~]# grep ng /usr/share/xml/iso-codes/iso_639_3.xml /root/list
     </pre>
@@ -191,6 +261,13 @@ node1 的根密码已经设置为 flectrag 。
 
 >创建一个名为 /root/backup.tar.gz 的 tar 存档，其应包含 /usr/local 的 tar 存档，其应包含 /usr/local 的内容。该 tar 存档必须使用 gzip 进行压缩。
 
+<details>
+    <summary>参考答案</summary>
+    <pre>
+    [root@node1 ~]# mkdir /root/findfiles
+    [root@node1 ~]# find / user jacques -exec cp -a {} /root/findfiles/ \;</pre>
+</details>
+
 ## 完成配置容器使其自动启动
 
 >利用注册服务器上的 rsyslog 镜像，创建一个名为  logserver 的容器
@@ -198,6 +275,13 @@ node1 的根密码已经设置为 flectrag 。
 >1、面向 wallah 用户，配置一个 systemd 服务
 >
 >2、该服务命名为 container-logserver ，并在系统重启时自动启动，无需干预
+
+<details>
+    <summary>参考答案</summary>
+    <pre>
+    [root@node1 ~]# mkdir /root/findfiles
+    [root@node1 ~]# find / user jacques -exec cp -a {} /root/findfiles/ \;</pre>
+</details>
 
 ## 完成为容器配置持久存储
 
@@ -208,6 +292,13 @@ node1 的根密码已经设置为 flectrag 。
 >2、将主机 /var/log/journal目录下任何以 *.journal 的文件复制到 /home/wallah/container_logfile 中
 >
 >3、将服务配置为在启动时自动将/home/wallah/container_logfile 挂载到容器中的 /var/log/journal 下
+
+<details>
+    <summary>参考答案</summary>
+    <pre>
+    [root@node1 ~]# mkdir /root/findfiles
+    [root@node1 ~]# find / user jacques -exec cp -a {} /root/findfiles/ \;</pre>
+</details>
 
 ---
 
@@ -220,17 +311,45 @@ node1 的根密码已经设置为 flectrag 。
 
 >将 node2 的 root 密码设置为 flectrag 。您需要获得系统访问权限才能进行此操作。
 
+<details>
+    <summary>参考答案</summary>
+    <pre>
+    [root@node1 ~]# mkdir /root/findfiles
+    [root@node1 ~]# find / user jacques -exec cp -a {} /root/findfiles/ \;</pre>
+</details>
+
 ## 完成配置您的系统以使用默认存储库
 
 >YUM 存储库已可以从 http://foundation0.ilt.example.com/dvd/BaseOS 和 http://foundation0.ilt.example.com/dvd/AppStream 使用配置您的系统，以将这些位置用作默认存储库
+
+<details>
+    <summary>参考答案</summary>
+    <pre>
+    [root@node1 ~]# mkdir /root/findfiles
+    [root@node1 ~]# find / user jacques -exec cp -a {} /root/findfiles/ \;</pre>
+</details>
 
 ## 完成调整逻辑卷大小
 
 >将逻辑卷 vo 及其文件系统的大小调整到 230 MiB。确保文件系统内容保持不变。注：分区大小很少与请求的大小完全相同，因此可以接受范围为 217 MiB 到 243 MiB 的大小。
 
+<details>
+    <summary>参考答案</summary>
+    <pre>
+    [root@node1 ~]# mkdir /root/findfiles
+    [root@node1 ~]# find / user jacques -exec cp -a {} /root/findfiles/ \;</pre>
+</details>
+
 ## 完成添加交换分区
 
 >向您的系统添加一个额外的交换分区 756MiB 。交换分区应在系统启动时自动挂载。不要删除或以任何方式改动系统上的任何现有交换分区。
+
+<details>
+    <summary>参考答案</summary>
+    <pre>
+    [root@node1 ~]# mkdir /root/findfiles
+    [root@node1 ~]# find / user jacques -exec cp -a {} /root/findfiles/ \;</pre>
+</details>
 
 ## 完成创建逻辑卷
 
@@ -241,6 +360,13 @@ node1 的根密码已经设置为 flectrag 。
 >2、qagroup 卷组中逻辑卷的扩展块大小应当为 16 MiB
 >
 >3、使用 ext3 文件系统格式化新逻辑卷。该逻辑卷应在系统启动时自动挂载到 /mnt/qa 下
+
+<details>
+    <summary>参考答案</summary>
+    <pre>
+    [root@node1 ~]# mkdir /root/findfiles
+    [root@node1 ~]# find / user jacques -exec cp -a {} /root/findfiles/ \;</pre>
+</details>
 
 ## 完成创建 VDO 卷
 
@@ -256,6 +382,20 @@ node1 的根密码已经设置为 flectrag 。
 >
 >5、该卷（在系统启动时）挂载到 /vbread 下
 
+<details>
+    <summary>参考答案</summary>
+    <pre>
+    [root@node1 ~]# mkdir /root/findfiles
+    [root@node1 ~]# find / user jacques -exec cp -a {} /root/findfiles/ \;</pre>
+</details>
+
 ## 完成配置系统调优
 
 >为您的系统选择建议的 tuned 配置集并将它设为默认设置。
+
+<details>
+    <summary>参考答案</summary>
+    <pre>
+    [root@node1 ~]# mkdir /root/findfiles
+    [root@node1 ~]# find / user jacques -exec cp -a {} /root/findfiles/ \;</pre>
+</details>
