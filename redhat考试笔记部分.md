@@ -4,7 +4,7 @@
  * @Author       : ChlorineLv@outlook.com
  * @Date         : 2021-11-01 14:11:00
  * @LastEditors  : ChlorineLv@outlook.com
- * @LastEditTime : 2021-11-05 15:55:05
+ * @LastEditTime : 2021-11-08 12:05:28
 -->
 
 # RHCSA考试备注
@@ -121,8 +121,9 @@ node1 的根密码已经设置为 flectrag 。
 <details>
     <summary>参考答案</summary>
     <pre>
-    [root@node1 ~]# mkdir /root/findfiles
-    [root@node1 ~]# find / user jacques -exec cp -a {} /root/findfiles/ \;</pre>
+    [root@node1 ~]# groupadd sysmgrs
+    [root@node1 ~]#
+    </pre>
 </details>
 
 ## 完成配置 cron 作业
@@ -133,9 +134,11 @@ node1 的根密码已经设置为 flectrag 。
 
 <details>
     <summary>参考答案</summary>
-    <pre>
-    [root@node1 ~]# mkdir /root/findfiles
-    [root@node1 ~]# find / user jacques -exec cp -a {} /root/findfiles/ \;</pre>
+    
+    [root@node1 ~]# crontab -e -u natash
+    > */2 * * * * logger "EX200 in progress"
+    [root@node1 ~]# systemctl status crond
+    [root@node1 ~]# systemctl enable --now crond
 </details>
 
 ## 完成创建协作目录
@@ -182,9 +185,20 @@ node1 的根密码已经设置为 flectrag 。
 
 <details>
     <summary>参考答案</summary>
-    <pre>
-    [root@node1 ~]# mkdir /root/findfiles
-    [root@node1 ~]# find / user jacques -exec cp -a {} /root/findfiles/ \;</pre>
+
+                    // 查看服务器有无共享目录（可做可不做）
+    [root@node1 ~]# showmount -e materials.example.com
+                    // 安装autofs
+    [root@node1 ~]# yum -y install autofs
+                    // 配置文件里加一行，用于监视/rhome
+    [root@node1 ~]# vi /etc/auto.master
+    > /rhome /etc/auto.misc
+                    // 监视remoteuser1目录，并挂载到远程（本地目录，权限，远程目录）
+    [root@node1 ~]# vi /etc/auto.misc
+    > remoteuser1 -fstype=nfs,rw materials.example.com:/rhome/remoteuser1
+                    // 重启服务，设置开机自启
+    [root@node1 ~]# systemctl start autofs
+    [root@node1 ~]# systemctl enable autofs
 </details>
 
 ## 完成配置 /var/tmp/fstab 权限
