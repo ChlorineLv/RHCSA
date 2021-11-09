@@ -4,7 +4,7 @@
  * @Author       : ChlorineLv@outlook.com
  * @Date         : 2021-11-01 14:11:00
  * @LastEditors  : ChlorineLv@outlook.com
- * @LastEditTime : 2021-11-08 12:05:28
+ * @LastEditTime : 2021-11-09 11:38:19
 -->
 
 # RHCSA考试备注
@@ -71,9 +71,27 @@ node1 的根密码已经设置为 flectrag 。
 
 <details>
     <summary>参考答案</summary>
-    <pre>
-    [root@node1 ~]# mkdir /root/findfiles
-    [root@node1 ~]# find / user jacques -exec cp -a {} /root/findfiles/ \;</pre>
+
+                    // 改主机名
+    [root@node1 ~]# hostnamectl set-hostname node1.domain250.example.com
+    
+    IP解法一：
+                    // 图形化配IP，子网掩码用ip/来写
+    [root@node1 ~]# nmtui
+    
+    IP解法二：
+                    // 命令行配IP
+    [root@node1 ~]# nmcli connection modify "Wired connection 1" ipv4.addresses 172.25.250.100/24 ipv4.gateway 172.25.250.254 ipv4.dns 172.25.254.250 ipv4.method manual connection.autoconnect yes
+    [root@node1 ~]# nmcli connection up "Wired connection 1"
+
+    检查：
+    [root@node1 ~]# ip addr                 //检查 IP
+    [root@node1 ~]# cat /etc/resolv.conf    //检查 DNS
+    [root@node1 ~]# ip route                //检查网关
+    [root@node1 ~]# cat /etc/hostname       //检查主机名
+    [root@node1 ~]# ping node1.domain250.example.com
+    [root@node1 ~]# ping registry.domain250.example.com
+
 </details>
 
 ## 完成配置您的系统以使用默认存储库
@@ -82,9 +100,8 @@ node1 的根密码已经设置为 flectrag 。
 
 <details>
     <summary>参考答案</summary>
-    <pre>
-    [root@node1 ~]# mkdir /root/findfiles
-    [root@node1 ~]# find / user jacques -exec cp -a {} /root/findfiles/ \;</pre>
+
+    [root@node1 ~]# 
 </details>
 
 ## 完成调试 SELinux
@@ -99,9 +116,10 @@ node1 的根密码已经设置为 flectrag 。
 
 <details>
     <summary>参考答案</summary>
-    <pre>
+    
+
     [root@node1 ~]# mkdir /root/findfiles
-    [root@node1 ~]# find / user jacques -exec cp -a {} /root/findfiles/ \;</pre>
+    [root@node1 ~]# find / user jacques -exec cp -a {} /root/findfiles/ \;
 </details>
 
 ## 完成创建用户帐户
@@ -120,10 +138,11 @@ node1 的根密码已经设置为 flectrag 。
 
 <details>
     <summary>参考答案</summary>
-    <pre>
+    
+
     [root@node1 ~]# groupadd sysmgrs
     [root@node1 ~]#
-    </pre>
+    
 </details>
 
 ## 完成配置 cron 作业
@@ -153,9 +172,10 @@ node1 的根密码已经设置为 flectrag 。
 
 <details>
     <summary>参考答案</summary>
-    <pre>
+    
+
     [root@node1 ~]# mkdir /root/findfiles
-    [root@node1 ~]# find / user jacques -exec cp -a {} /root/findfiles/ \;</pre>
+    [root@node1 ~]# find / user jacques -exec cp -a {} /root/findfiles/ \;
 </details>
 
 ## 完成配置 NTP
@@ -164,9 +184,10 @@ node1 的根密码已经设置为 flectrag 。
 
 <details>
     <summary>参考答案</summary>
-    <pre>
+    
+
     [root@node1 ~]# mkdir /root/findfiles
-    [root@node1 ~]# find / user jacques -exec cp -a {} /root/findfiles/ \;</pre>
+    [root@node1 ~]# find / user jacques -exec cp -a {} /root/findfiles/ \;
 </details>
 
 ## 完成配置 autofs
@@ -219,9 +240,10 @@ node1 的根密码已经设置为 flectrag 。
 
 <details>
     <summary>参考答案</summary>
-    <pre>
+    
+
     [root@node1 ~]# mkdir /root/findfiles
-    [root@node1 ~]# find / user jacques -exec cp -a {} /root/findfiles/ \;</pre>
+    [root@node1 ~]# find / user jacques -exec cp -a {} /root/findfiles/ \;
 </details>
 
 ## 完成配置用户帐户
@@ -230,9 +252,10 @@ node1 的根密码已经设置为 flectrag 。
 
 <details>
     <summary>参考答案</summary>
-    <pre>
+    
+
     [root@node1 ~]# useradd -u 3533 manalo
-    [root@node1 ~]# echo flectrag | passwd --stdin manalo</pre>
+    [root@node1 ~]# echo flectrag | passwd --stdin manalo
 </details>
 
 ## 完成查找文件
@@ -245,9 +268,10 @@ node1 的根密码已经设置为 flectrag 。
 
 <details>
     <summary>参考答案</summary>
-    <pre>
+    
+
     [root@node1 ~]# mkdir /root/findfiles
-    [root@node1 ~]# find / user jacques -exec cp -a {} /root/findfiles/ \;</pre>
+    [root@node1 ~]# find / user jacques -exec cp -a {} /root/findfiles/ \;
 </details>
 
 ## 完成查找字符串
@@ -266,9 +290,9 @@ node1 的根密码已经设置为 flectrag 。
 
 <details>
     <summary>参考答案</summary>
-    <pre>
+    
     [root@node1 ~]# grep ng /usr/share/xml/iso-codes/iso_639_3.xml /root/list
-    </pre>
+    
 </details>
 
 ## 完成创建存档
@@ -277,9 +301,9 @@ node1 的根密码已经设置为 flectrag 。
 
 <details>
     <summary>参考答案</summary>
-    <pre>
+
     [root@node1 ~]# mkdir /root/findfiles
-    [root@node1 ~]# find / user jacques -exec cp -a {} /root/findfiles/ \;</pre>
+    [root@node1 ~]# find / user jacques -exec cp -a {} /root/findfiles/ \;
 </details>
 
 ## 完成配置容器使其自动启动
@@ -292,9 +316,10 @@ node1 的根密码已经设置为 flectrag 。
 
 <details>
     <summary>参考答案</summary>
-    <pre>
+    
+
     [root@node1 ~]# mkdir /root/findfiles
-    [root@node1 ~]# find / user jacques -exec cp -a {} /root/findfiles/ \;</pre>
+    [root@node1 ~]# find / user jacques -exec cp -a {} /root/findfiles/ \;
 </details>
 
 ## 完成为容器配置持久存储
@@ -309,9 +334,9 @@ node1 的根密码已经设置为 flectrag 。
 
 <details>
     <summary>参考答案</summary>
-    <pre>
+    
     [root@node1 ~]# mkdir /root/findfiles
-    [root@node1 ~]# find / user jacques -exec cp -a {} /root/findfiles/ \;</pre>
+    [root@node1 ~]# find / user jacques -exec cp -a {} /root/findfiles/ \;
 </details>
 
 ---
@@ -327,9 +352,21 @@ node1 的根密码已经设置为 flectrag 。
 
 <details>
     <summary>参考答案</summary>
-    <pre>
-    [root@node1 ~]# mkdir /root/findfiles
-    [root@node1 ~]# find / user jacques -exec cp -a {} /root/findfiles/ \;</pre>
+
+    1、在console里send key，选ctrl+shift+del
+    2、待出现启动项时按e
+    3、定位到Linux开头那行末（约第三行），输入rd.break console=tty0，并ctrl+x重启
+    4、出现命令行：
+                // 重新读写挂载真实系统
+    Swith_root:/# mount -o remount,rw /sysroot
+                // 切换到真实系统
+    Swith_root:/# chroot /sysroot
+                // 改root密码
+    sh-4.4# echo flectrag | passwd --stdin root
+                // SELinux初始化，重新打标签，让改密码生效
+    sh-4.4# touch /.autorelable
+    sh-4.4# exit
+    Swith_root:/# exit
 </details>
 
 ## 完成配置您的系统以使用默认存储库
@@ -338,9 +375,10 @@ node1 的根密码已经设置为 flectrag 。
 
 <details>
     <summary>参考答案</summary>
-    <pre>
+    
+
     [root@node1 ~]# mkdir /root/findfiles
-    [root@node1 ~]# find / user jacques -exec cp -a {} /root/findfiles/ \;</pre>
+    [root@node1 ~]# find / user jacques -exec cp -a {} /root/findfiles/ \;
 </details>
 
 ## 完成调整逻辑卷大小
@@ -349,9 +387,9 @@ node1 的根密码已经设置为 flectrag 。
 
 <details>
     <summary>参考答案</summary>
-    <pre>
+    
     [root@node1 ~]# mkdir /root/findfiles
-    [root@node1 ~]# find / user jacques -exec cp -a {} /root/findfiles/ \;</pre>
+    [root@node1 ~]# find / user jacques -exec cp -a {} /root/findfiles/ \;
 </details>
 
 ## 完成添加交换分区
@@ -360,9 +398,10 @@ node1 的根密码已经设置为 flectrag 。
 
 <details>
     <summary>参考答案</summary>
-    <pre>
+    
+
     [root@node1 ~]# mkdir /root/findfiles
-    [root@node1 ~]# find / user jacques -exec cp -a {} /root/findfiles/ \;</pre>
+    [root@node1 ~]# find / user jacques -exec cp -a {} /root/findfiles/ \;
 </details>
 
 ## 完成创建逻辑卷
@@ -377,9 +416,10 @@ node1 的根密码已经设置为 flectrag 。
 
 <details>
     <summary>参考答案</summary>
-    <pre>
+    
+
     [root@node1 ~]# mkdir /root/findfiles
-    [root@node1 ~]# find / user jacques -exec cp -a {} /root/findfiles/ \;</pre>
+    [root@node1 ~]# find / user jacques -exec cp -a {} /root/findfiles/ \;
 </details>
 
 ## 完成创建 VDO 卷
@@ -398,9 +438,10 @@ node1 的根密码已经设置为 flectrag 。
 
 <details>
     <summary>参考答案</summary>
-    <pre>
+    
+
     [root@node1 ~]# mkdir /root/findfiles
-    [root@node1 ~]# find / user jacques -exec cp -a {} /root/findfiles/ \;</pre>
+    [root@node1 ~]# find / user jacques -exec cp -a {} /root/findfiles/ \;
 </details>
 
 ## 完成配置系统调优
@@ -409,7 +450,8 @@ node1 的根密码已经设置为 flectrag 。
 
 <details>
     <summary>参考答案</summary>
-    <pre>
+    
+
     [root@node1 ~]# mkdir /root/findfiles
-    [root@node1 ~]# find / user jacques -exec cp -a {} /root/findfiles/ \;</pre>
+    [root@node1 ~]# find / user jacques -exec cp -a {} /root/findfiles/ \;
 </details>
