@@ -4,7 +4,7 @@
  * @Author       : ChlorineLv@outlook.com
  * @Date         : 2021-11-01 14:11:00
  * @LastEditors  : ChlorineLv@outlook.com
- * @LastEditTime : 2021-11-09 11:38:19
+ * @LastEditTime : 2021-11-09 14:08:27
 -->
 
 # RHCSA考试备注
@@ -101,7 +101,22 @@ node1 的根密码已经设置为 flectrag 。
 <details>
     <summary>参考答案</summary>
 
-    [root@node1 ~]# 
+    [root@node1 ~]# vim /etc/yum.repos.d/dvd.repo
+    > [base]
+    > name=base
+    > baseulr='http://foundation0.ilt.example.com/dvd/BaseOS'
+    > enabled=1
+    > gpgcheck=0
+    > 
+    > [app]
+    > name=app
+    > baseurl='http://foundation0.ilt.example.com/dvd/AppStream'
+    > enabled=1
+    > gpgcheck=0
+                    // 考试无需，仅用于查看是否成功
+    [root@node1 ~]# yum -y install vim
+    [root@node1 ~]# rpm -qa | grep xxxx
+    [root@node1 ~]# yum provides xxxx
 </details>
 
 ## 完成调试 SELinux
@@ -116,7 +131,6 @@ node1 的根密码已经设置为 flectrag 。
 
 <details>
     <summary>参考答案</summary>
-    
 
     [root@node1 ~]# mkdir /root/findfiles
     [root@node1 ~]# find / user jacques -exec cp -a {} /root/findfiles/ \;
@@ -138,7 +152,6 @@ node1 的根密码已经设置为 flectrag 。
 
 <details>
     <summary>参考答案</summary>
-    
 
     [root@node1 ~]# groupadd sysmgrs
     [root@node1 ~]#
@@ -172,7 +185,6 @@ node1 的根密码已经设置为 flectrag 。
 
 <details>
     <summary>参考答案</summary>
-    
 
     [root@node1 ~]# mkdir /root/findfiles
     [root@node1 ~]# find / user jacques -exec cp -a {} /root/findfiles/ \;
@@ -184,7 +196,6 @@ node1 的根密码已经设置为 flectrag 。
 
 <details>
     <summary>参考答案</summary>
-    
 
     [root@node1 ~]# mkdir /root/findfiles
     [root@node1 ~]# find / user jacques -exec cp -a {} /root/findfiles/ \;
@@ -240,7 +251,6 @@ node1 的根密码已经设置为 flectrag 。
 
 <details>
     <summary>参考答案</summary>
-    
 
     [root@node1 ~]# mkdir /root/findfiles
     [root@node1 ~]# find / user jacques -exec cp -a {} /root/findfiles/ \;
@@ -252,7 +262,6 @@ node1 的根密码已经设置为 flectrag 。
 
 <details>
     <summary>参考答案</summary>
-    
 
     [root@node1 ~]# useradd -u 3533 manalo
     [root@node1 ~]# echo flectrag | passwd --stdin manalo
@@ -268,7 +277,6 @@ node1 的根密码已经设置为 flectrag 。
 
 <details>
     <summary>参考答案</summary>
-    
 
     [root@node1 ~]# mkdir /root/findfiles
     [root@node1 ~]# find / user jacques -exec cp -a {} /root/findfiles/ \;
@@ -316,7 +324,6 @@ node1 的根密码已经设置为 flectrag 。
 
 <details>
     <summary>参考答案</summary>
-    
 
     [root@node1 ~]# mkdir /root/findfiles
     [root@node1 ~]# find / user jacques -exec cp -a {} /root/findfiles/ \;
@@ -375,7 +382,6 @@ node1 的根密码已经设置为 flectrag 。
 
 <details>
     <summary>参考答案</summary>
-    
 
     [root@node1 ~]# mkdir /root/findfiles
     [root@node1 ~]# find / user jacques -exec cp -a {} /root/findfiles/ \;
@@ -398,7 +404,6 @@ node1 的根密码已经设置为 flectrag 。
 
 <details>
     <summary>参考答案</summary>
-    
 
     [root@node1 ~]# mkdir /root/findfiles
     [root@node1 ~]# find / user jacques -exec cp -a {} /root/findfiles/ \;
@@ -416,7 +421,6 @@ node1 的根密码已经设置为 flectrag 。
 
 <details>
     <summary>参考答案</summary>
-    
 
     [root@node1 ~]# mkdir /root/findfiles
     [root@node1 ~]# find / user jacques -exec cp -a {} /root/findfiles/ \;
@@ -438,7 +442,6 @@ node1 的根密码已经设置为 flectrag 。
 
 <details>
     <summary>参考答案</summary>
-    
 
     [root@node1 ~]# mkdir /root/findfiles
     [root@node1 ~]# find / user jacques -exec cp -a {} /root/findfiles/ \;
@@ -450,7 +453,6 @@ node1 的根密码已经设置为 flectrag 。
 
 <details>
     <summary>参考答案</summary>
-    
 
     [root@node1 ~]# mkdir /root/findfiles
     [root@node1 ~]# find / user jacques -exec cp -a {} /root/findfiles/ \;
