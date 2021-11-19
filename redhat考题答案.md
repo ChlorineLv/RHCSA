@@ -374,9 +374,10 @@ node1 的根密码已经设置为 flectrag 。
 
 > 查找当 jacques 所有的所有文件并将其副本放入 /root/findfiles 目录
 
-* 利用find  [选项]  查找条件  目标文件——查
+* 利用find  -[选项]  查找条件  目标文件——查
 * 利用  会将root结尾的结果覆写进/root/a.txt里（如无新建有则覆写）
-* -exec cp -a {} /root/findfiles 会将前面的结果传进 { } 里执行接下来的语句
+* -exec cp -a {} /root/findfiles/ 会将前面的结果传进 { } 里执行接下来的语句
+* &#x26a1;记得 cp 到一个目录（带/结尾）
 * &#x26a1;记得结尾加 \ ; 号
 
 ```bash
@@ -384,7 +385,7 @@ node1 的根密码已经设置为 flectrag 。
     [root@node1 ~]# mkdir /root/findfiles
     
     // 通过-exec将文件传到cp命令里的{}
-    [root@node1 ~]# find / user jacques -exec cp -a {} /root/findfiles/ \;
+    [root@node1 ~]# find / -user jacques -exec cp -a {} /root/findfiles/ \;
 
 ```
 

@@ -1,3 +1,6 @@
+复习匆忙，本篇错漏不再更改
+
+```
 # RHCSA考试备注
 
 (Redhat Certified System Administrator)
@@ -934,3 +937,4 @@ node1 的根密码已经设置为 flectrag 。
     [wallah@node1 ~]# ss -antup | grep 8080
     [wallah@node1 ~]# ps -aux | grep
 </details>
+```
