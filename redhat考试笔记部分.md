@@ -159,6 +159,8 @@ node1 的根密码已经设置为 flectrag 。
 >
 > 3、Web 服务器在系统启动时自动启动
 
+&#x26a1;记得systemctl启动有个d（httpd）
+
 <details>
     <summary>参考答案</summary>
 
@@ -239,7 +241,7 @@ node1 的根密码已经设置为 flectrag 。
     > */2 * * * * logger "EX200 in progress"
 
     // 查看情况
-    [root@node1 ~]# systemctl status crond
+    [root@node1 ~]# systemctl -l -u natasha
     
     // 设置开机自启
     [root@node1 ~]# systemctl enable --now crond
@@ -272,6 +274,8 @@ node1 的根密码已经设置为 flectrag 。
 ## 完成配置 NTP
 
 > 配置您的系统，使其成为 materials.example.com 的 NTP 客户端。（注：materials.example.com 是 classroom.example.com 的 DNS 别名）
+
+&#x26a1;记得启动服务有个d（chronyd）
 
 <details>
     <summary>参考答案</summary>
@@ -523,7 +527,7 @@ node1 的根密码已经设置为 flectrag 。
     
     // 启动用户服务，并设置开机自启动
     [wallah@node1 user]$ systemctl --user enable --now container-logserver.service
-    
+
 </details>
 
 ---
