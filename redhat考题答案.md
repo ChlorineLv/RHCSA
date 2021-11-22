@@ -309,11 +309,11 @@ node1 的根密码已经设置为 flectrag 。
     // 安装autofs
     [root@node1 ~]# yum -y install autofs
     
-    // 配置文件里加一行，用于监视/rhome
+    // 配置文件里加一行，定义挂载目录/rhome，挂载动作看/etc/auto.misc文件
     [root@node1 ~]# vi /etc/auto.master
     > /rhome /etc/auto.misc
     
-    // 监视remoteuser1目录，并挂载到远程（本地目录，权限，远程目录）
+    // 将远程目录挂载到本地目录（本地目录，权限，远程目录）
     [root@node1 ~]# vi /etc/auto.misc
     > remoteuser1 -fstype=nfs,rw materials.example.com:/rhome/remoteuser1
     
