@@ -733,7 +733,7 @@ node1 的根密码已经设置为 flectrag 。
     # virtual-guest
     [root@node2 ~]# tuned-adm active
     # Current active profile: virtual-guest
-    [root@node2 ~]# tuned-adm profile virtual-gue
+    [root@node2 ~]# tuned-adm profile virtual-guest
 ```
 
 ---
@@ -807,12 +807,13 @@ node1 的根密码已经设置为 flectrag 。
     [root@node1 ~]# /usr/bin/newsearch
     
     // 检查
-    [root@node1 ~]# ll -h /root/newfiles -rws--x--x. 1 root root 33K Dec 17 2019 chfn
-    # -rwsr-x---. 1 root cockpit-wsinstance 46K Mar 12 2020 cockpit-session
-    # -rwsr-xr-x. 1 root root 33K Dec 13 2019 passwd
-    # -rwsr-xr-x. 1 root root 33K Dec 17 2019 umount
-    # -rwsr-xr-x. 1 root root 37K Dec 19 2019 unix_chkpwd
-    # -rws--x--x. 1 root root 47K Nov 20 2018
+    [root@node1 ~]# ll -h /root/newfiles 
+    >-rws--x--x. 1 root root 33K Dec 17 2019 chfn
+    > -rwsr-x---. 1 root cockpit-wsinstance 46K Mar 12 2020 cockpit-session
+    > -rwsr-xr-x. 1 root root 33K Dec 13 2019 passwd
+    > -rwsr-xr-x. 1 root root 33K Dec 17 2019 umount
+    > -rwsr-xr-x. 1 root root 37K Dec 19 2019 unix_chkpwd
+    > -rws--x--x. 1 root root 47K Nov 20 2018
 ```
 
 ## 4、设置默认权限
