@@ -544,8 +544,8 @@ node1 的根密码已经设置为 flectrag 。
     // 改root密码
     sh-4.4# echo flectrag | passwd --stdin root
     
-    // SELinux初始化，重新打标签，让改密码生效
-    sh-4.4# touch /.autorelable
+    // SELinux初始化，重新打标签，让改密码生效（注意label的单词拼写）
+    sh-4.4# touch /.autorelabel
     sh-4.4# exit
     Swith_root:/# exit
 ```
