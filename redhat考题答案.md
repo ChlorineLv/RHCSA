@@ -750,7 +750,13 @@ node1 的根密码已经设置为 flectrag 。
 
     // visudo区别于直接改配置文件，退出前有语法检查
     [root@node1 ~]# visudo
-    > # %wheel ALL=(ALL) NOPASSWD: ALL
+
+    // 改后面same thing那行
+    > ## Allows people in group wheel to run all commands
+    > %wheel  ALL=(ALL)       ALL
+    > 
+    > ## Same thing without a password
+    > # %wheel        ALL=(ALL)       NOPASSWD: ALL
     > %sysmgrs ALL=(ALL) NOPASSWD: ALL
 
     // 测试
@@ -780,11 +786,42 @@ node1 的根密码已经设置为 flectrag 。
 
 ## 3、创建脚本
 
+> 创建一个名为 myresearch 的脚本
+> 该脚本放置在 /usr/bin 下
+> 该脚本用来查找 /usr 下所有小于 10m 且具有修改组 ID 权限的文件，将这些文件放置于/root/myfiles 下
+
+&#x1F4CC; -size的参数注意M大写，k小写
+
+```bash
+
+    [root@node1 ~]# vim /usr/bin/myresearch
+    > #!/bin/bash
+    > if [ ! -d /root/myfiles ]; then
+    > mkdir /root/myfiles
+    > fi
+    > find /usr -size -10M -perm /g=s -exec cp -a {} /root/myfiles \;
+
+    // 或者
+    > mkdir /root/myfiles
+    > find /usr -size -10M -perm -g=s -exec cp -a {} /root/myfiles \;
+
+    [root@node1 ~]# chmod +x /usr/bin/myresearch
+    [root@node1 ~]# /usr/bin/myresearch
+    [root@node1 ~]# ll -h /root/myfiles -rwx--s--x. 1 root slocate 47K Aug 12 2018 locate
+    > -rwx--s--x. 1 root lock 22K Aug 12 2018 lockdev
+    > -r-xr-sr-x. 1 root ssh_keys 464K Nov 26 2018 ssh-keysign
+    > -rwx--s--x. 1 root utmp 13K Aug 12 2018 utempter
+    > -rwxr-sr-x. 1 root tty 23K Dec 11 2018 write
+```
+
+## 4、创建脚本
+
 > 创建一个名为 newsearch 的脚本
 > 1、该脚本放置在 /usr/bin 下
 > 2、该脚本用来查找 /usr 下所有大于 30k ，但是小于 50k 且具有 SUID 权限的文件，将这些文件放置于 /root/newfiles 下
 
-&#x1F4CC;UID权限则为-u=s或/u=s，GID权限则为-g=s或/g=s
+&#x1F4CC; UID权限则为-u=s或/u=s，GID权限则为-g=s或/g=s
+&#x1F4CC; -size的参数注意M大写，k小写
 
 ```bash
 
@@ -816,15 +853,17 @@ node1 的根密码已经设置为 flectrag 。
     > -rws--x--x. 1 root root 47K Nov 20 2018
 ```
 
-## 4、设置默认权限
+## 5、设置默认权限
 
 > 用户 manalo 在 node1 上，所有新创建的文件都应具有 -r--r--r-- 的默认权限，此用户的所有新创建目录应具有 dr-xr-xr-x 的默认权
 
 ```bash
 
-    // umask之间没有等号，~/.bashrc = /home/manalo/.bashrc
     [root@node1 ~]# su - manalo
+    
+    // umask之间没有等号，~/.bashrc = /home/manalo/.bashrc
     [manalo@node1 ~]$ vim ~/.bashrc
+    > # User specific aliases and functions
     > umask 222
     [manalo@node1 ~]$ souce ~/.bashrc //配置生效
 
@@ -837,7 +876,7 @@ node1 的根密码已经设置为 flectrag 。
     dr-xr-xr-x. 2 a a 6 
 ```
 
-## 5、配置容器使其自动启动（B 卷）
+## 6、配置容器使其自动启动（B 卷）
 
  > 利用注册服务器上的 rsyslog 镜像，创建一个名为 logger 的容器
  >
@@ -876,7 +915,7 @@ node1 的根密码已经设置为 flectrag 。
     [root@node1 ~]# ps -aux | grep podman
 ```
 
-## 6、容器 nginx
+## 7、容器 nginx
 
 > 利用注册服务器上的 nginx 镜像，创建一个名为 nginx 的容器
 > 1、面向 wallah 用户，配置一个 systemd 服务 该服务命名为 container-nginx`，并在系统重启时自动启动，无需干预
