@@ -822,6 +822,7 @@ node1 的根密码已经设置为 flectrag 。
 
 ```bash
 
+    // umask之间没有等号，~/.bashrc = /home/manalo/.bashrc
     [root@node1 ~]# su - manalo
     [manalo@node1 ~]$ vim ~/.bashrc
     > umask 222
