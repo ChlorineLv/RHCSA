@@ -808,7 +808,7 @@ node1 的根密码已经设置为 flectrag 。
     
     // 检查
     [root@node1 ~]# ll -h /root/newfiles 
-    >-rws--x--x. 1 root root 33K Dec 17 2019 chfn
+    > -rws--x--x. 1 root root 33K Dec 17 2019 chfn
     > -rwsr-x---. 1 root cockpit-wsinstance 46K Mar 12 2020 cockpit-session
     > -rwsr-xr-x. 1 root root 33K Dec 13 2019 passwd
     > -rwsr-xr-x. 1 root root 33K Dec 17 2019 umount
