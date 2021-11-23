@@ -339,6 +339,9 @@ node1 的根密码已经设置为 flectrag 。
 >
 >6、所有其他用户（当前或未来）能够读取 /var/tmp/fstab
 
+setfacl -m u:用户:rw /文件  <-用户facl值
+setfacl -m m::rw /文件      <-更改mask值
+
 ```bash
 
     [root@node1 ~]# cp /etc/fstab /var/tmp/fstab
