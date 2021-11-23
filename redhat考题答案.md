@@ -575,6 +575,8 @@ node1 的根密码已经设置为 flectrag 。
 
 > 将逻辑卷 vo 及其文件系统的大小调整到 230 MiB。确保文件系统内容保持不变。注：分区大小很少与请求的大小完全相同，因此可以接受范围为 217 MiB 到 243 MiB 的大小。
 
+&#x1F4CC; -L +xxM 表示扩容多xxM，不带加号-L xxM 表示扩容至xxM，-r表示连同文件系统一起扩展（先r再L）
+
 ```bash
 
     // 查看vo的全名
@@ -583,11 +585,11 @@ node1 的根密码已经设置为 flectrag 。
     // 查看卷后是否有空余
     [root@node2 ~]# vgs
 
-    // 扩容（L表示扩容至）
+    // 扩容
     [root@node2 ~]# lvextend -rL 230M /dev/mapper/myvol-vo
 
     // 复查大小
-    [root@node2 ~]# df -ht
+    [root@node2 ~]# df -hT
 ```
 
 ## 4、完成添加交换分区
