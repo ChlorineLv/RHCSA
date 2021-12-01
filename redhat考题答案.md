@@ -319,7 +319,7 @@ node1 的根密码已经设置为 flectrag 。
     
     // 重启服务，设置开机自启
     [root@node1 ~]# systemctl start autofs
-    [root@node1 ~]# systemctl enable autofs
+    [root@node1 ~]# systemctl enable --now autofs
 
 ```
 
