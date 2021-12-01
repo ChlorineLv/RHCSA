@@ -509,7 +509,8 @@ setfacl -m m::rw /文件      <-更改mask值
     [wallah@node1 ~]$ cd .config/systemd/user/
     
     // 生成服务管理文件，container-logserver.service 就是你的服务名。
-    [wallah@node1 user]$ podman generate systemd -n logserver -f /home/wallah/.config/systemd/user/container-logserver.service
+    [wallah@node1 user]$ podman generate systemd -n logserver -f 
+    > /home/wallah/.config/systemd/user/container-logserver.service
 
     // 停止运行容器，测试服务管理容器
     [wallah@node1 user]$ podman stop logserver
