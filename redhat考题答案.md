@@ -448,7 +448,7 @@ setfacl -m m::rw /文件      <-更改mask值
     [root@node1 ~]# ll -d /run/log/journal/
     [root@node1 ~]# mkdir /var/log/journal
 
-    // 设置权限允许读写
+    // 设置权限允许读写，与 /run/log/journal/ 一致
     [root@node1 ~]# chown root:systemd-journal /var/log/journal/
     [root@node1 ~]# chmod 2775 /var/log/journal
 
@@ -463,7 +463,7 @@ setfacl -m m::rw /文件      <-更改mask值
     [root@node1 ~]# ls /var/log/journal/
     [root@node1 ~]# cp /var/log/journal/xxxxxx/system.journal /home/wallah/container_journal
 
-    // -R 将该文件夹以及子文件
+    // -R 表示改动将继承该文件夹以及子文件
     [root@node1 ~]# chown -R wallah:wallah /home/wallah/container_logfile
 
     // 登录 wallah 建容器，不能用 su
@@ -488,7 +488,7 @@ setfacl -m m::rw /文件      <-更改mask值
     // 拉镜像
     [wallah@node1 ~]$ podman pull registry.domain250.example.com/rhel8/rsyslog
     
-    // 运行容器，podman run: 启动一个容器 -d 后台运行 --name logserver : 容器的名字 -v /home/wallah/container_logfile:/var/log/journal:Z 目录映射
+    // 运行容器：podman run启动一个容器 -d后台运行 --name logserver容器的名字 -v /home/wallah/container_logfile:/var/log/journal:Z 目录映射
     [wallah@node1 ~]$ podman run -d --name logserver -v /home/wallah/container_logfile:/var/log/journal:Z registry.domain250.example.com/rhel8/rsyslog
     
     // 查看容器
@@ -504,7 +504,7 @@ setfacl -m m::rw /文件      <-更改mask值
     // 查看（估计可以不写）
     [wallah@node1 ~]$ loginctl show-user wallah 
     
-    // 创建用户服务 unit
+    // 创建用户服务 unit （死记硬背）
     [wallah@node1 ~]$ mkdir -p ~/.config/systemd/user/
     [wallah@node1 ~]$ cd .config/systemd/user/
     
