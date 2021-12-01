@@ -236,7 +236,7 @@ node1 的根密码已经设置为 flectrag 。
     > */2 * * * * logger "EX200 in progress"
 
     // 查看情况
-    [root@node1 ~]# systemctl -l -u natasha
+    [root@node1 ~]# crontab -l -u natasha
     
     // 设置开机自启
     [root@node1 ~]# systemctl enable --now crond
