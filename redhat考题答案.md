@@ -228,9 +228,9 @@ node1 的根密码已经设置为 flectrag 。
 
 ```bash
 
-    // # crond -e 编辑当前用户 
-    // # crond -l 查看当前用户
-    // # crond -u 以某用户身份来控制
+    // # crontab -e 编辑当前用户 
+    // # crontab -l 查看当前用户
+    // # crontab -u 以某用户身份来控制
     // 5个*：分 时 日 月 星期，斜杠表示每x
     [root@node1 ~]# crontab -e -u natash
     > */2 * * * * logger "EX200 in progress"
